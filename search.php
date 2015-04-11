@@ -61,8 +61,9 @@
 
     <div class="container">
 		<div class="form-group">
-			<label for="sel1">Select list:</label>
-			<select class="input-large" id="sel1">
+			<label for="sel1">Select Department:</label>
+			<select name='department' class="input-large" id="sel1">
+        <option>Select All</option>
 				<option>1</option>
 				<option>2</option>
 				<option>3</option>
@@ -70,10 +71,20 @@
   			</select>
 	</div>	
 		<br>
-      <a class="btn btn-lg btn-default" href="#" role="button">Link</a>
-      <a class="btn btn-lg btn-default" href="#" role="button">Link</a>
-      <a class="btn btn-lg btn-default" href="#" role="button">Link</a>
 
+      <?php
+      $stmt = $mysqli->prepare("SELECT RID, course, problem FROM request;");
+      $stmt->execute();
+      $stmt->bind_result($rid, $course, $problem);
+      while($stmt->fetch()){
+        echo '<a class="btn btn-lg btn-default" href="#" role="button"> Problem in '.$course.': '.$problem.'</a><br>';
+      }
+      $stmt->close();
+      ?>
+      <!--<a class="btn btn-lg btn-default" href="#" role="button">Link</a><br>
+      <a class="btn btn-lg btn-default" href="#" role="button">Link</a><br>
+      <a class="btn btn-lg btn-default" href="#" role="button">Link</a><br>
+      -->
     </div> <!-- /container -->
 
 
