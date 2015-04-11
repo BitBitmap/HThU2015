@@ -60,18 +60,15 @@
     </nav>
 
     <div class="container">
-		<div class="dropdown">
-			<button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
-			Select a Class
-			<span class="caret"></span>
-			</button>
-			<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-				<li role="presentation"><a role="menuitem" tabindex="-1" href="#">Action</a></li>
-				<li role="presentation"><a role="menuitem" tabindex="-1" href="#">Another action</a></li>
-				<li role="presentation"><a role="menuitem" tabindex="-1" href="#">Something else here</a></li>
-				<li role="presentation"><a role="menuitem" tabindex="-1" href="#">Separated link</a></li>
-		  	</ul>
-		</div>	
+		<div class="form-group">
+			<label for="sel1">Select list:</label>
+			<select class="input-large" id="sel1">
+				<option>1</option>
+				<option>2</option>
+				<option>3</option>
+				<option>4</option>
+  			</select>
+	</div>	
 		<br>
       <a class="btn btn-lg btn-default" href="#" role="button">Link</a>
       <a class="btn btn-lg btn-default" href="#" role="button">Link</a>
