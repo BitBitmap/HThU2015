@@ -16,7 +16,7 @@
     <title>Welcome to HalpMe</title>
 
     <?php
-      if(isset($_SESSION["pid"])  && ($_SESSION["REMOTE_ADDR"] == $_SERVER["REMOTE_ADDR"]))
+      if(isset($_SESSION["netid"])  && ($_SESSION["REMOTE_ADDR"] == $_SERVER["REMOTE_ADDR"]))
       {echo '<META http-equiv="refresh" content="0; url=dashboard.php"/>';}
     ?>
 
@@ -49,7 +49,7 @@
           <a class="navbar-brand" href="#">HalpMe</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
-          <form class="navbar-form navbar-right">
+          <form class="navbar-form navbar-right" method="post">
             <div class="form-group">
               <input type="text" name="netid" placeholder="NetID" class="form-control">
             </div>
@@ -77,7 +77,7 @@
           $_SESSION["netid"] = $netid;
           $_SESSION["REMOTE_ADDR"] = $_SERVER["REMOTE_ADDR"];
 
-          echo '<META http-equiv="refresh" content="3; url=dashboard.php"/>';
+          echo '<META http-equiv="refresh" content="0; url=dashboard.php"/>';
         }
         /* Login is a failure. */
         else
