@@ -61,7 +61,7 @@
 
     <div class="container">
 	    
-	    <form>
+	    <form method="post">
 		    <div class="form-group">
 				<div class="dropdown">
 					<button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
@@ -69,10 +69,10 @@
 					<span class="caret"></span>
 					</button>
 					<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-						<li role="presentation"><a role="menuitem" tabindex="-1" href="#">Action</a></li>
-						<li role="presentation"><a role="menuitem" tabindex="-1" href="#">Another action</a></li>
-						<li role="presentation"><a role="menuitem" tabindex="-1" href="#">Something else here</a></li>
-						<li role="presentation"><a role="menuitem" tabindex="-1" href="#">Separated link</a></li>
+						<li role="presentation"><a role="menuitem" tabindex="-1">Action</a></li>
+						<li role="presentation"><a role="menuitem" tabindex="-1">Another action</a></li>
+						<li role="presentation"><a role="menuitem" tabindex="-1">Something else here</a></li>
+						<li role="presentation"><a role="menuitem" tabindex="-1">Separated link</a></li>
 		  			</ul>
 				</div>
 		    </div>
@@ -88,6 +88,7 @@
 		    </div>
 		</form>
 
+    insert into request (course, problem, description, netID) values('CS-1114', 'I cant read', 'This is an expanded description', 'rmg419')
     </div> <!-- /container -->
 
 
