@@ -84,7 +84,6 @@
         {
           sleep(1);
           echo '<P>Your ID or password is incorrect.</P>';
-          echo '<P>Click <A href="login.php">here</A> to try again.</P>';
         }
         $stmt->close();
         $mysqli->close();
