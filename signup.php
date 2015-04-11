@@ -16,33 +16,49 @@
 <link href="css/bootstrap.min.css" rel="stylesheet">
 
 <link href="css/signin.css" rel="stylesheet">
-
-<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-<!--[if lt IE 9]>
-<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-<![endif]-->
+	<?php
+      if(isset($_SESSION["netid"])  && ($_SESSION["REMOTE_ADDR"] == $_SERVER["REMOTE_ADDR"]))
+      {echo '<META http-equiv="refresh" content="0; url=dashboard.php"/>';}
+    ?>
 </head>
 <body>
-
-
 <div class="container">
-	<form class="form-signin">
+	<form class="form-signin" method="post">
 		<h1>HalpMe Sign Up</h1>
 <h2 class="form-signin-heading">Please fill in details</h2>
 <label for="inputNetID" class="sr-only">NetID</label>
-<input type="text" id="inputNetID" class="form-control" placeholder="NetID" required autofocus>
+<input type="text" id="inputNetID" name="netid" class="form-control" placeholder="NetID" required autofocus>
 <br>
 <label for="inputPassword" class="sr-only">Password</label>
-<input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+<input type="password" id="inputPassword" name="password" class="form-control" placeholder="Password" required>
 <br>
-
-
 <button class="btn btn-lg btn-primary btn-block" type="submit">Submit</button>
 	</form>
 </div>
 
+<?php
+if(isset($_POST['netid']) && isset($_POST['password'])){
+	$stmt = $mysqli->prepare("Select netID from  member");
+	$stmt->execute();
+	$stmt->bind_result($id);
+	$test = true;
+	while($stmt->fetch()){
+		if ($id == $_POST['netid']){
+			$test = false;
+			echo "<p> User already exists</p>";
+		}
+	}
+	$stmt->close();
+	if($test){
+		$encrypted = md5($_POST['password']);
+		$stmt = $mysqli->prepare("INSERT INTO member VALUES(?, ?)");
+		$stmt->bind_param('ss', $_POST['netid'], $encrypted);
+		$stmt->execute();
+		$stmt->close();
+		echo '<META http-equiv="refresh" content="0; url=index.php"/>';
+	}
+}
+?>
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <!-- Include all compiled plugins (below), or include individual files as needed -->

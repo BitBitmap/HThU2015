@@ -61,7 +61,9 @@
 
     <div class="container">
 
-      
+      <?php
+      echo "Welcome ".$_SESSION['netid'];
+      ?>
 
     </div> <!-- /container -->
 
