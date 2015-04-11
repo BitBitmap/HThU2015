@@ -27,7 +27,7 @@
 		<h1>HalpMe Sign Up</h1>
 <h2 class="form-signin-heading">Please fill in details</h2>
 <label for="inputNetID" class="sr-only">NetID</label>
-<input type="email" id="inputNetID" class="form-control" placeholder="NetID" required autofocus>
+<input type="text" id="inputNetID" class="form-control" placeholder="NetID" required autofocus>
 <br>
 <label for="inputPassword" class="sr-only">Password</label>
 <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
