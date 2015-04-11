@@ -43,10 +43,10 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="dashboard.html">Dashboard</a></li>
-            <li><a href="newpost.html">New Post</a></li>
-            <li><a href="search.html">Search</a></li>
-            <li><a href="posts.html">Your Posts</a></li>
+            <li class="active"><a href="dashboard.php">Dashboard</a></li>
+            <li><a href="newpost.php">New Post</a></li>
+            <li><a href="search.php">Search</a></li>
+            <li><a href="posts.php">Your Posts</a></li>
             
           </ul>
           <ul class="nav navbar-nav navbar-right">
