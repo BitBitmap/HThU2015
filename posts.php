@@ -53,7 +53,7 @@
             
           </ul>
           <ul class="nav navbar-nav navbar-right">
-            <li class="active"><a href="./">Logout <span class="sr-only">(current)</span></a></li>
+            <li class="active"><a href="logout.php">Logout <span class="sr-only">(current)</span></a></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
