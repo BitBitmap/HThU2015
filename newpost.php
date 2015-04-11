@@ -60,12 +60,33 @@
     </nav>
 
     <div class="container">
-
-      <form>
-	  	<textarea class="form-control" rows="6" placeholder="Your post"></textarea>
-	  	<br>
-	  <button type="submit" class="btn btn-default">Submit</button>
-</form>
+	    
+	    <form>
+		    <div class="form-group">
+				<div class="dropdown">
+					<button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
+					Select a Class
+					<span class="caret"></span>
+					</button>
+					<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+						<li role="presentation"><a role="menuitem" tabindex="-1" href="#">Action</a></li>
+						<li role="presentation"><a role="menuitem" tabindex="-1" href="#">Another action</a></li>
+						<li role="presentation"><a role="menuitem" tabindex="-1" href="#">Something else here</a></li>
+						<li role="presentation"><a role="menuitem" tabindex="-1" href="#">Separated link</a></li>
+		  			</ul>
+				</div>
+		    </div>
+				<br>
+			<div class="form-group">
+				<label for="exampleInputEmail1">Basic Description</label>
+				<input type="email" class="form-control" id="exampleInputEmail1">
+			</div>
+				<label for="exampleInputEmail1">Describe Your Problem</label>
+			  	<textarea class="form-control" rows="6"></textarea>
+			  	<br>
+			  	<button type="submit" class="btn btn-default">Submit</button>
+		    </div>
+		</form>
 
     </div> <!-- /container -->
 
