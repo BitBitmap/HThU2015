@@ -17,10 +17,7 @@
 
     <?php
       if(isset($_SESSION["pid"])  && ($_SESSION["REMOTE_ADDR"] == $_SERVER["REMOTE_ADDR"]))
-      {
-        echo '<META http-equiv="refresh" content="0; url=dashboard.php"/>';
-      }
-
+      {echo '<META http-equiv="refresh" content="0; url=dashboard.php"/>';}
     ?>
 
     <!-- Bootstrap core CSS -->
@@ -54,16 +51,47 @@
         <div id="navbar" class="navbar-collapse collapse">
           <form class="navbar-form navbar-right">
             <div class="form-group">
-              <input type="text" placeholder="NetID" class="form-control">
+              <input type="text" name="netid" placeholder="NetID" class="form-control">
             </div>
             <div class="form-group">
-              <input type="password" placeholder="Password" class="form-control">
+              <input type="password" name="password" placeholder="Password" class="form-control">
             </div>
             <button type="submit" class="btn btn-success">Sign in</button>
           </form>
         </div><!--/.navbar-collapse -->
       </div>
     </nav>
+
+    <?php
+    if(isset($_POST["netid"]) && isset($_POST["password"]))
+    {
+      if($stmt = $mysqli->prepare("select netID from member where netID = ? and password = ?"))
+      {
+        $encrypted = md5($_POST['password']);
+        $stmt->bind_param("ss", $_POST["netid"], $encrypted);
+        $stmt->execute();
+        $stmt->bind_result($netid);
+        /* Login is a success. */
+        if($stmt->fetch())
+        {
+          $_SESSION["netid"] = $netid;
+          $_SESSION["REMOTE_ADDR"] = $_SERVER["REMOTE_ADDR"];
+
+          echo '<META http-equiv="refresh" content="3; url=dashboard.php"/>';
+        }
+        /* Login is a failure. */
+        else
+        {
+          sleep(1);
+          echo '<P>Your ID or password is incorrect.</P>';
+          echo '<P>Click <A href="login.php">here</A> to try again.</P>';
+        }
+        $stmt->close();
+        $mysqli->close();
+      }
+    }
+      ?>
+
 
     <!-- Main jumbotron for a primary marketing message or call to action -->
     <div class="jumbotron">
