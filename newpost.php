@@ -62,20 +62,16 @@
     <div class="container">
 	    
 	    <form method="post">
-		    <div class="form-group">
-				<div class="dropdown">
-					<button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
-					Select a Class
-					<span class="caret"></span>
-					</button>
-					<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-						<li role="presentation"><a role="menuitem" tabindex="-1">Action</a></li>
-						<li role="presentation"><a role="menuitem" tabindex="-1">Another action</a></li>
-						<li role="presentation"><a role="menuitem" tabindex="-1">Something else here</a></li>
-						<li role="presentation"><a role="menuitem" tabindex="-1">Separated link</a></li>
-		  			</ul>
-				</div>
-		    </div>
+		    <div class="container">
+		<div class="form-group">
+			<label for="sel1">Select list:</label>
+			<select class="input-large" id="sel1">
+				<option>1</option>
+				<option>2</option>
+				<option>3</option>
+				<option>4</option>
+  			</select>
+	</div>	
 				<br>
 			<div class="form-group">
 				<label for="exampleInputEmail1">Basic Description</label>
