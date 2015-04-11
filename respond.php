@@ -10,7 +10,7 @@
     <meta name="author" content="">
     <link rel="icon" href="favicon.jpg">
 
-    <title>HalpMe – Search</title>
+    <title>HalpMe – Dashboard</title>
 
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -45,7 +45,7 @@
           <ul class="nav navbar-nav">
             <li><a href="dashboard.php">Dashboard</a></li>
             <li><a href="newpost.php">New Post</a></li>
-            <li class="active"><a href="search.php">Search</a></li>
+            <li><a href="search.php">Search</a></li>
             <li><a href="posts.php">Your Posts</a></li>
             
           </ul>
@@ -58,9 +58,11 @@
 
     <div class="container">
 
-      <a class="btn btn-lg btn-default" href="#" role="button">Link</a>
-      <a class="btn btn-lg btn-default" href="#" role="button">Link</a>
-      <a class="btn btn-lg btn-default" href="#" role="button">Link</a>
+		<form>
+		  <textarea class="form-control" rows="8" placeholder="Your response"></textarea>
+		  <br>
+		  <button type="submit" class="btn btn-default">Submit</button>
+		</form>
 
     </div> <!-- /container -->
 
@@ -71,6 +73,6 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+    <script src="js/ie10-viewport-bug-workaround.js"></script>
   </body>
 </html>
