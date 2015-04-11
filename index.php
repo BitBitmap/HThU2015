@@ -10,13 +10,13 @@
     <meta name="author" content="">
     <link rel="icon" href="../../favicon.ico">
 
-    <title>HalpMe – Dashboard</title>
+    <title>Welcome to HalpMe</title>
 
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="css/navbar-fixed-top.css" rel="stylesheet">
+    <link href="css/jumbotron.css" rel="stylesheet">
 
     <script src="js/ie-emulation-modes-warning.js"></script>
 
@@ -29,8 +29,7 @@
 
   <body>
 
-    <!-- Fixed navbar -->
-    <nav class="navbar navbar-default navbar-fixed-top">
+    <nav class="navbar navbar-inverse navbar-fixed-top">
       <div class="container">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -42,26 +41,36 @@
           <a class="navbar-brand" href="#">HalpMe</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
-          <ul class="nav navbar-nav">
-            <li><a href="dashboard.html">Dashboard</a></li>
-            <li class="active"><a href="newpost.html">New Post</a></li>
-            <li><a href="search.html">Search</a></li>
-            <li><a href="posts.html">Your Posts</a></li>
-            
-          </ul>
-          <ul class="nav navbar-nav navbar-right">
-            <li class="active"><a href="./">Logout <span class="sr-only">(current)</span></a></li>
-          </ul>
-        </div><!--/.nav-collapse -->
+          <form class="navbar-form navbar-right">
+            <div class="form-group">
+              <input type="text" placeholder="NetID" class="form-control">
+            </div>
+            <div class="form-group">
+              <input type="password" placeholder="Password" class="form-control">
+            </div>
+            <button type="submit" class="btn btn-success">Sign in</button>
+          </form>
+        </div><!--/.navbar-collapse -->
       </div>
     </nav>
 
+    <!-- Main jumbotron for a primary marketing message or call to action -->
+    <div class="jumbotron">
+      <div class="container">
+        <h1>Welcome to HalpMe, NYU!</h1>
+        <p>This is a website where you can ask for tutoring help for all of your classes.</p>
+        <p><a class="btn btn-primary btn-lg" href="signup.php" role="button">Sign Up &raquo;</a></p>
+      </div>
+    </div>
+
     <div class="container">
 
-      <a class="btn btn-lg btn-default" href="#" role="button">Link</a>
-      <a class="btn btn-lg btn-default" href="#" role="button">Link</a>
-      <a class="btn btn-lg btn-default" href="#" role="button">Link</a>
 
+      <hr>
+
+      <footer>
+        <p>&copy; Theta Upsilon 2015</p>
+      </footer>
     </div> <!-- /container -->
 
 
@@ -69,8 +78,8 @@
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-    <script src="../../dist/js/bootstrap.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+    <script src="js/ie10-viewport-bug-workaround.js"></script>
   </body>
 </html>
