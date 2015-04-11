@@ -42,7 +42,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">HalpMe</a>
+          <a class="navbar-brand" href="index.php">HalpMe</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
@@ -61,9 +61,11 @@
 
     <div class="container">
 
-      <a class="btn btn-lg btn-default" href="#" role="button">Link</a>
-      <a class="btn btn-lg btn-default" href="#" role="button">Link</a>
-      <a class="btn btn-lg btn-default" href="#" role="button">Link</a>
+      <form>
+	  	<textarea class="form-control" rows="6" placeholder="Your post"></textarea>
+	  	<br>
+	  <button type="submit" class="btn btn-default">Submit</button>
+</form>
 
     </div> <!-- /container -->
 
