@@ -60,17 +60,20 @@
     </nav>
 
     <div class="container">
-		<div class="form-group">
-			<label for="sel1">Select Department:</label>
-			<select name='department' class="input-large" id="sel1">
-        <option>Select All</option>
-				<option>1</option>
-				<option>2</option>
-				<option>3</option>
-				<option>4</option>
-  			</select>
-	</div>	
-		<br>
+	    <form class="form-inline">
+			<div class="form-group">
+				<label for="sel1">Select Department:</label>
+				<select name='department' class="input-large" id="sel1">
+	        <option>Select All</option>
+					<option>1</option>
+					<option>2</option>
+					<option>3</option>
+					<option>4</option>
+	  			</select>
+			</div>
+			<button type="submit" class="btn btn-default">Submit</button>	
+	    </form>
+	    <br>
 
       <?php
       $stmt = $mysqli->prepare("SELECT RID, course, problem FROM request;");
