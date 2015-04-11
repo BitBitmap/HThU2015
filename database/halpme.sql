@@ -1,35 +1,66 @@
---Team ThetaUpsilon
---Created on 4/11/15
---Copyright (c) 2015    All rights reserved
+/*
+Team ThetaUpsilon
+Created on 4/11/15
+Copyright (c) 2015    All rights reserved
+*/
 DROP DATABASE IF EXISTS HalpMe;
 CREATE DATABASE IF NOT EXISTS HalpMe;
 USE HalpMe;
---	Problem solving tutoring system similar to craigslist
 
--- MEMBER
+/*
+	Problem solving tutoring system similar to craigslist
+	SQL 
+*/
+
+-- USER
 create table member(
 	netID varchar(30),
 	password  char(32),
 	PRIMARY KEY (netID)
 );
 
--- CLASS
-create table classes(
-	course varchar(30),
-	department varchar(32),
-	description varchar (50),
-	PRIMARY KEY (course)
-);
 
 -- REQUEST
 create table request(
 	RID integer auto_increment,
-	course varchar(30),
-	problem varchar(100),
+	course varchar(10),
+	problem varchar(200),
 	description varchar (200),
 	requestdatetime datetime,
-	netID varchar (30),
+	memberID varchar (30),
 	PRIMARY KEY (RID),
-    FOREIGN KEY (netID) REFERENCES member(netID),
-    FOREIGN KEY (course) REFERENCES classes(course)
+    FOREIGN KEY (memberID) REFERENCES member(netID)
+	FOREIGN KEY (course) REFERENCES classes(course)
 );
+
+
+-- CLASS
+create table classes(
+	course varchar(30),
+	department varchar(32),
+	course_name varchar (30),
+	PRIMARY KEY (course)
+);
+
+insert into classes values('CS-1114','Computer Science','Intro to Problem Solving');
+insert into classes values('CS-1124','Computer Science','C++');
+insert into classes values('CS-2134','Computer Science','Data Structures');
+insert into classes values('BIO-1114','Biology','Bio 1');
+insert into classes values('BIO-1124','Biology','Bio 2');
+insert into classes values('BIO-2134','Biology','Orgo');
+insert into classes values('DM-1114','Digital Media','Acoustics');
+insert into classes values('DM-1124','Digital Media','Animation');
+insert into classes values('DM-2134','Digital Media','Audio Foundation');
+insert into member values('test123',md5('test123'));
+insert into member values('richisrich',md5('richisrich'));
+insert into request values(1,'CS-1114',"I don't get Python",'What is an if statement?',current_timestamp,'test123');
+insert into request values(2,'BIO-2134',"How do I orgo?",'Carbon?!?!?!?',current_timestamp,'richisrich');
+
+
+
+
+
+
+
+
+
