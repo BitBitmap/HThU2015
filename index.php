@@ -15,6 +15,14 @@
 
     <title>Welcome to HalpMe</title>
 
+    <?php
+      if(isset($_SESSION["pid"])  && ($_SESSION["REMOTE_ADDR"] == $_SERVER["REMOTE_ADDR"]))
+      {
+        echo '<META http-equiv="refresh" content="0; url=dashboard.php"/>';
+      }
+
+    ?>
+
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
 
