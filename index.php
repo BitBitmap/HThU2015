@@ -96,7 +96,7 @@
     <div class="jumbotron">
       <div class="container">
         <h1>Welcome to HalpMe, NYU!</h1>
-        <p>This is a website where you can ask for tutoring help for all of your classes.</p>
+        <p>This is a website where you can ask for, and respond to requests for homework & tutoring help for all of your classes, from your fellow classmates.</p>
         <p><a class="btn btn-primary btn-lg" href="signup.php" role="button">Sign Up &raquo;</a></p>
       </div>
     </div>

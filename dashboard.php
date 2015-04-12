@@ -62,7 +62,7 @@
     <div class="container">
 
       <?php
-      echo "<h1>Welcome ".$_SESSION['netid'] . "</h1>";
+      echo "<h1>Welcome ".$_SESSION['netid'] . "!</h1>";
       ?>
       
       <h2>Use the navigation above to make a new post, view all current posts on the search page, view and delete your own posts on Your Posts page, or logout.</h2> 
