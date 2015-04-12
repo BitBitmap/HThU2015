@@ -93,18 +93,24 @@
       $stmt = $mysqli->prepare("SELECT memberID, problem from request where RID = ?");
       $stmt->bind_param('i', $_GET['rid']);
       $stmt->execute();
-      $stmt->bind_result($recipientid, $problem);
+      $stmt->bind_result($memberID, $problem);
+      if($stmt->fetch()){
+        $recepemail = $memberID.'@nyu.edu';
 
-      $mail->addAddress($recipientid.'@nyu.edu', $recipientid);  // Add a recipient
-      $mail->WordWrap = 50;                                 // Set word wrap to 50 characters
-      $mail->isHTML(true);                                  // Set email format to HTML
-      $mail->Subject = $problem;
-      $mail->Body    = $answer;
+        $mail->addAddress($recepemail, $memberID);  // Add a recipient
+        $mail->WordWrap = 50;                                 // Set word wrap to 50 characters
+        $mail->isHTML(true);                                  // Set email format to HTML
+        $mail->Subject = $problem;
+        $mail->Body    = $answer;
+      }
       if(!$mail->send()) {
          echo 'Message could not be sent.';
          echo 'Mailer Error: ' . $mail->ErrorInfo;
          exit;
       }
+      $stmt->close();
+      echo '<META http-equiv="refresh" content="0; url=success.php"/>';
+
     }
     ?>
     <!-- Bootstrap core JavaScript
