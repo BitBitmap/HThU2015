@@ -60,15 +60,20 @@
     </nav>
 
     <div class="container">
-	    <form class="form-inline">
+	    <form method = 'get' class="form-inline">
 			<div class="form-group">
 				<label for="sel1">Select Department:</label>
-				<select name='department' class="input-large" id="sel1">
-	        <option>Select All</option>
-					<option>1</option>
-					<option>2</option>
-					<option>3</option>
-					<option>4</option>
+        <?php
+        $stmt = $mysqli->prepare("SELECT DISTINCT department from classes");
+        $stmt->execute();
+        $stmt->bind_result($department);
+				echo '<select name="department" class="input-large" id="sel1">';
+	        echo "<option value = 'ALL'>Select All</option>";
+          while($stmt->fetch()){
+            echo "<option value= '".$department."'>".$department."</option>";
+          }
+          $stmt->close();
+          ?>
 	  			</select>
 			</div>
 			<button type="submit" class="btn btn-default">Submit</button>	
@@ -76,13 +81,27 @@
 	    <br>
 
       <?php
-      $stmt = $mysqli->prepare("SELECT RID, course, problem FROM request;");
-      $stmt->execute();
-      $stmt->bind_result($rid, $course, $problem);
-      while($stmt->fetch()){
-        echo '<a class="btn btn-lg btn-default" href="#" role="button"> Problem in '.$course.': '.$problem.'</a><br>';
+      if ($_SERVER['REQUEST_METHOD'] == 'GET' && $_GET['department'] == 'ALL'){
+
+        $stmt = $mysqli->prepare("SELECT RID, course, problem FROM request;");
+        $stmt->execute();
+        $stmt->bind_result($rid, $course, $problem);
+        while($stmt->fetch()){
+          echo '<a class="btn btn-lg btn-default" href="#" role="button"> Problem in '.$course.': '.$problem.'</a><br>';
+        }
+        $stmt->close();
+
       }
-      $stmt->close();
+      elseif ($_SERVER['REQUEST_METHOD'] == 'GET'){
+        $stmt = $mysqli->prepare("select RID, course, problem from classes natural join request where department = ? order by RID DESC;");
+        $stmt->bind_param('s', $_GET['department']);
+        $stmt->execute();
+        $stmt->bind_result($rid, $course, $problem);
+        while($stmt->fetch()){
+          echo '<a class="btn btn-lg btn-default" href="#" role="button"> Problem in '.$course.': '.$problem.'</a><br>';
+        }
+        $stmt->close();
+      }
       ?>
       <!--<a class="btn btn-lg btn-default" href="#" role="button">Link</a><br>
       <a class="btn btn-lg btn-default" href="#" role="button">Link</a><br>

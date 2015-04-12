@@ -98,7 +98,7 @@ session_start();
         $course = test($_POST['course']);
         $problem = test($_POST['problem']);
         $description = test($_POST['description']);
-        $stmt = $mysqli->prepare("INSERT INTO request (`RID`, `course`, `problem`, `description`, `requestdate`, `netID`) VALUES (NULL, ?, ?, ?, current_timestamp, ?);");
+        $stmt = $mysqli->prepare("INSERT INTO request (`RID`, `course`, `problem`, `description`, `requestdatetime`, `memberID`) VALUES (NULL, ?, ?, ?, current_timestamp, ?);");
         $stmt->bind_param('ssss', $course, $problem, $description, $_SESSION['netid']);
         $stmt->execute();
         $stmt->close();
