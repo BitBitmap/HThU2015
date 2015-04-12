@@ -62,7 +62,7 @@
     <div class="container">
 		<?php 
 		$stmt = $mysqli->prepare("SELECT RID, course, problem FROM request where memberID=?;");
-		$stmt->bind_param("s",$_SESSION['memberID'])
+		$stmt->bind_param("s",$_SESSION['netid'])
         $stmt->execute();
         $stmt->bind_result($rid, $course, $problem);
         while($stmt->fetch()){
