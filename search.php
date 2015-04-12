@@ -87,7 +87,7 @@
         $stmt->execute();
         $stmt->bind_result($rid, $course, $problem);
         while($stmt->fetch()){
-          echo '<a class="btn btn-lg btn-default" href="#" role="button"> Problem in '.$course.': '.$problem.'</a><br>';
+          echo '<a class="btn btn-lg btn-default" href="apost.php?rid='.$rid.'role="button"> Problem in '.$course.': '.$problem.'</a><br>';
         }
         $stmt->close();
 
@@ -98,7 +98,7 @@
         $stmt->execute();
         $stmt->bind_result($rid, $course, $problem);
         while($stmt->fetch()){
-          echo '<a class="btn btn-lg btn-default" href="#" role="button"> Problem in '.$course.': '.$problem.'</a><br>';
+          echo '<a class="btn btn-lg btn-default" href="apost.php?rid='.$rid.'role="button"> Problem in '.$course.': '.$problem.'</a><br>';
         }
         $stmt->close();
       }
