@@ -62,6 +62,7 @@
     <div class="container">
 	    <form method = 'get' class="form-inline">
 			<div class="form-group">
+<<<<<<< Updated upstream
 				<label for="sel1">Select Department:</label>
         <?php
         $stmt = $mysqli->prepare("SELECT DISTINCT department from classes");
@@ -74,8 +75,17 @@
           }
           $stmt->close();
           ?>
+=======
+				<label for="sel1">Select Department:</label><br>
+				<select name='department' class="input-large" id="sel1">
+	        <option>Select All</option>
+					<option>1</option>
+					<option>2</option>
+					<option>3</option>
+					<option>4</option>
+>>>>>>> Stashed changes
 	  			</select>
-			</div>
+			</div><br><br>
 			<button type="submit" class="btn btn-default">Submit</button>	
 	    </form>
 	    <br>
