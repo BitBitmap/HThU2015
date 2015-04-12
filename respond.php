@@ -60,16 +60,53 @@
     </nav>
 
     <div class="container">
+		<?php 
+    $rid = $_GET['rid'];
+    echo "<form method='post' action='respond.php?rid=".$rid."'>";
+    
+		  echo '<textarea class="form-control" rows="8" placeholder="Your response" name="answer"></textarea>';
+		  echo '<br>';
+		  echo '<button type="submit" class="btn btn-default">Submit</button>';
+		echo "</form>";
+    echo '</div> <!-- /container -->';
+    
+    function test($input){
+      $input = trim($input);
+      $input = stripslashes($input);
+      $input = htmlspecialchars($input);
+      return $input;
+    }
+    if ($_SERVER['REQUEST_METHOD'] == 'POST'){
+      $answer = test($_POST['answer']);
+      require 'PHPMailerAutoload.php';
+      $mail = new PHPMailer;
+      $mail->isSMTP();                                      // Set mailer to use SMTP
+      $mail->Host = 'smtp.gmail.com';                       // Specify main and backup server
+      $mail->SMTPAuth = true;                               // Enable SMTP authentication
+      $mail->Username = 'testnyuhackathon@gmail.com';                   // SMTP username
+      $mail->Password = 'nyuhackathon';               // SMTP password
+      $mail->SMTPSecure = 'tls';                            // Enable encryption, 'ssl' also accepted
+      $mail->Port = 587;                                    //Set the SMTP port number - 587 for authenticated TLS
+      $mail->setFrom('testnyuhackathon@gmail.com', 'HalpMe');     //Set who the message is to be sent from
+      $mail->addReplyTo($_SESSION['netid'].'@nyu.edu', $_SESSION['netid']);  //Set an alternative reply-to address
+      
+      $stmt = $mysqli->prepare("SELECT memberID, problem from request where RID = ?");
+      $stmt->bind_param('i', $_GET['rid']);
+      $stmt->execute();
+      $stmt->bind_result($recipientid, $problem);
 
-		<form>
-		  <textarea class="form-control" rows="8" placeholder="Your response"></textarea>
-		  <br>
-		  <button type="submit" class="btn btn-default">Submit</button>
-		</form>
-
-    </div> <!-- /container -->
-
-
+      $mail->addAddress($recipientid.'@nyu.edu', $recipientid);  // Add a recipient
+      $mail->WordWrap = 50;                                 // Set word wrap to 50 characters
+      $mail->isHTML(true);                                  // Set email format to HTML
+      $mail->Subject = $problem;
+      $mail->Body    = $answer;
+      if(!$mail->send()) {
+         echo 'Message could not be sent.';
+         echo 'Mailer Error: ' . $mail->ErrorInfo;
+         exit;
+      }
+    }
+    ?>
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->

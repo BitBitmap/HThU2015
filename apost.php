@@ -74,7 +74,6 @@
       $stmt->bind_param('i', $_GET['rid']);
       $stmt->execute();
       $stmt->bind_result($mid);
-      <br><br>
       
       if($stmt->fetch()){
         $ridpush = $_GET['rid'];
