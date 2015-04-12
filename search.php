@@ -62,7 +62,7 @@
     <div class="container">
 	    <form method = 'get' class="form-inline">
 			<div class="form-group">
-				<label for="sel1">Select Department:</label>
+				<label for="sel1">Select Department:</label><br>
         <?php
         $stmt = $mysqli->prepare("SELECT DISTINCT department from classes");
         $stmt->execute();
@@ -76,6 +76,7 @@
           ?>
 	  			</select>
 			</div>
+			<br><br>
 			<button type="submit" class="btn btn-default">Submit</button>	
 	    </form>
 	    <br>

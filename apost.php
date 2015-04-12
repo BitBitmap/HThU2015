@@ -66,7 +66,7 @@
       $stmt->execute();
       $stmt->bind_result($course, $course_name, $problem, $description);
       if($stmt->fetch()){
-        echo "Course: ".$course."<br>Course Description: ".$course_name."<br>Problem: ".$problem."<br>Description:<br>".$description."<br>";
+        echo "<b>Course: </b>".$course."<br><b>Course Description: </b>".$course_name."<br><b>Problem: </b>".$problem."<br><b>Description:</b><br>".$description."<br>";
       }
       $stmt->close();
 
@@ -74,13 +74,15 @@
       $stmt->bind_param('i', $_GET['rid']);
       $stmt->execute();
       $stmt->bind_result($mid);
+      <br><br>
+      
       if($stmt->fetch()){
         $ridpush = $_GET['rid'];
         if($mid == $_SESSION['netid']){
-           echo '<a class="btn btn-lg btn-default" href="delete.php?rid='.$ridpush.'" role="button">Delete</a>';
+           echo '<br><br><a class="btn btn-lg btn-default" href="delete.php?rid='.$ridpush.'" role="button">Delete</a>';
         }
         else{
-          echo '<a class="btn btn-lg btn-default" href="respond.php?rid='.$ridpush.'" role="button">Answer</a>';
+          echo '<br><br><a class="btn btn-lg btn-default" href="respond.php?rid='.$ridpush.'" role="button">Answer</a>';
         }
       }
       $stmt->close();
