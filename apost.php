@@ -80,7 +80,7 @@
            echo '<a class="btn btn-lg btn-default" href="delete.php?rid='.$ridpush.'" role="button">Delete</a>';
         }
         else{
-          echo '<a class="btn btn-lg btn-default" href="answer.php?rid='.$ridpush.'" role="button">Answer</a>';
+          echo '<a class="btn btn-lg btn-default" href="respond.php?rid='.$ridpush.'" role="button">Answer</a>';
         }
       }
       $stmt->close();
