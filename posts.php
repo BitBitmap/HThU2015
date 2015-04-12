@@ -60,11 +60,16 @@
     </nav>
 
     <div class="container">
-
-      <a class="btn btn-lg btn-default" href="#" role="button">Link</a>
-      <a class="btn btn-lg btn-default" href="#" role="button">Link</a>
-      <a class="btn btn-lg btn-default" href="#" role="button">Link</a>
-
+		<?php 
+		$stmt = $mysqli->prepare("SELECT RID, course, problem FROM request where memberID=?;");
+		$stmt->bind_param("s",$_SESSION['memberID'])
+        $stmt->execute();
+        $stmt->bind_result($rid, $course, $problem);
+        while($stmt->fetch()){
+          echo '<a class="btn btn-lg btn-default" href="apost.php?rid='.$rid.'role="button"> Problem in '.$course.': '.$problem.'</a><br>';
+        }
+        $stmt->close();
+		?>
     </div> <!-- /container -->
 
 
