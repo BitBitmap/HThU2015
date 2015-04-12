@@ -62,11 +62,11 @@
     <div class="container">
 		<?php 
 		$stmt = $mysqli->prepare("SELECT RID, course, problem FROM request where memberID=?;");
-		$stmt->bind_param("s",$_SESSION['netid'])
+		$stmt->bind_param("s",$_SESSION['netid']);
         $stmt->execute();
         $stmt->bind_result($rid, $course, $problem);
         while($stmt->fetch()){
-          echo '<a class="btn btn-lg btn-default" href="apost.php?rid='.$rid.'role="button"> Problem in '.$course.': '.$problem.'</a><br>';
+          echo '<a class="btn btn-lg btn-default" href="apost.php?rid='.$rid.'" role="button"> Problem in '.$course.': '.$problem.'</a><br>';
         }
         $stmt->close();
 		?>

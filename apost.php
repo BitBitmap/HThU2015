@@ -60,10 +60,30 @@
     </nav>
 
     <div class="container">
+      <?php
+      $stmt = $mysqli->prepare("select course, course_name, problem, description from classes natural join request where rid = ?");
+      $stmt->bind_param('i', $_GET['rid']);
+      $stmt->execute();
+      $stmt->bind_result($course, $course_name, $problem, $description);
+      if($stmt->fetch()){
+        echo "Course: ".$course."<br>Course Description: ".$course_name."<br>Problem: ".$problem."<br>Description:<br>".$description."<br>";
+      }
+      $stmt->close();
 
-      <a class="btn btn-lg btn-default" href="#" role="button">Answer</a>
-      <a class="btn btn-lg btn-default" href="#" role="button">Delete</a>
-
+      $stmt = $mysqli->prepare("select memberID from request where RID = ?");
+      $stmt->bind_param('i', $_GET['rid']);
+      $stmt->execute();
+      $stmt->bind_result($mid);
+      if($stmt->fetch()){
+        if($mid == $_SESSION['netid']){
+           echo '<a class="btn btn-lg btn-default" href="#" role="button">Delete</a>';
+        }
+        else{
+          echo '<a class="btn btn-lg btn-default" href="#" role="button">Answer</a>';
+        }
+      }
+      $stmt->close();
+      ?>
     </div> <!-- /container -->
 
 
